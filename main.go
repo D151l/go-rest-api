@@ -2,7 +2,9 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/ztrue/shutdown"
 	"net/http"
 )
 
@@ -75,10 +77,24 @@ func getTodoById(id string) (*todo, error) {
 }
 
 func main() {
+	Connect()
+	CreateTables()
+
 	router := gin.Default()
 	router.GET("/todos", getTodos)
 	router.GET("/todos/:id", getTodo)
 	router.PATCH("/todos/:id", toggleTodoStatus)
 	router.POST("/todos", addTodo)
-	router.Run("localhost:9090")
+	err := router.Run("localhost:9090")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	shutdown.Add(func() {
+		Close()
+		fmt.Println("SQL Connection closed")
+	})
+
+	shutdown.Listen()
 }
