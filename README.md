@@ -6,4 +6,4 @@
 
 In this repository I made my first Go rest api by a tutorial
 
-[https://go.dev/doc/tutorial/create-module](https://www.youtube.com/watch?v=d_L64KT3SFM)https://www.youtube.com/watch?v=d_L64KT3SFM
+[https://www.youtube.com/watch?v=d_L64KT3SFM](https://www.youtube.com/watch?v=d_L64KT3SFM)
