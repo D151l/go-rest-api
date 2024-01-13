@@ -2,7 +2,7 @@
 
 ---
 
-# My first go project
+# My first rest api with go
 
 In this repository I made my first Go rest api by a tutorial
 
